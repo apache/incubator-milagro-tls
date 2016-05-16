@@ -1,5 +1,10 @@
 
-/*
+/**
+
+ \file milagro.h
+ 
+ \brief Milagro defines and structures. Depends on milagro-crypto
+
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
  distributed with this work for additional information
@@ -16,13 +21,6 @@
  under the License.
  */
 
-/*
- * milagro.h
- * 
- * support for milagro_p2p and milagro_cs
- * require an extern library: milagro-crypto
- *
- */
 
 
 
@@ -194,7 +192,7 @@ int mbedtls_ssl_milagro_cs_alloc_memory(int client_or_server, mbedtls_milagro_cs
  * \param milagro_cs      milagro_cs struct which contains the parameters
  *                  to be initialized
  *
- * \retun           0 if the parameters are good, -1 otherwise
+ * \return           0 if the parameters are good, -1 otherwise
  *
  */
 int mbedtls_milagro_cs_check(int client_or_server, mbedtls_milagro_cs_context *milagro_cs );
@@ -219,7 +217,7 @@ int mbedtls_milagro_cs_read_client_parameters( mbedtls_milagro_cs_context *milag
  * \param milagro_cs      milagro_cs struct in which the parameters has to be
  *                  stored
  *
- * \retun           0 if the reading finish well, -1 otherwise
+ * \return           0 if the reading finish well, -1 otherwise
  *
  */
 int mbedtls_milagro_cs_authenticate_client( mbedtls_milagro_cs_context *milagro_cs );
@@ -282,10 +280,6 @@ void mbedtls_milagro_cs_free( mbedtls_milagro_cs_context *milagro_cs);
  */
 struct mbedtls_milagro_p2p_context
 {
-    /*
-     * See the paper TODO what paper?
-     *
-     */
     int date;                  /*!< set to zero in case of not using time permit                      */
     octet client_rec_key;      /*!< Client's receiver key provided by the TA                          */
     octet server_sen_key;      /*!< Server's sender key provided by the TA                            */
